@@ -1,4 +1,4 @@
-import getIcon from './icons';
+import getIcon from './icon_util';
 
 const Icons = (props) => {
     return getIcon(props.name);
