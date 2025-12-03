@@ -1,0 +1,54 @@
+{
+  "name": "mobile-first-25E4-26E1-material-ui",
+  "version": "0.0.1",
+  "description": "Site Material",
+  "bugs": {
+    "url": "https://github.com/tiagoluizrs/mobile-first-25E4-26E1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagoluizrs/mobile-first-25E4-26E1"
+  },
+  "license": "MIT",
+  "author": "Tiago Silva",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.5",
+    "@mui/material": "^7.3.5",
+    "@mui/styled-engine-sc": "^7.3.5",
+    "@mui/x-charts": "^8.20.0",
+    "@mui/x-data-grid": "^8.20.0",
+    "@mui/x-date-pickers": "^8.19.0",
+    "bootstrap": "^5.3.8",
+    "dayjs": "^1.11.19",
+    "react": "19.1.1",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "19.1.1",
+    "react-router-dom": "^7.9.5",
+    "react-scripts": "^5.0.0",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "loader-utils": "3.2.1",
+    "sass": "^1.94.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
