@@ -10,7 +10,7 @@ const createDrawerList = (items) => {
                     <ListItemButton onClick={() => {
                         alert(item.navigate)
                     }}>
-                        <ListItemIcon><Icon name={item.icon} /></ListItemIcon>
+                        <ListItemIcon><Icon name={item.icon} color="#1d7bf4" /></ListItemIcon>
                         <ListItemText primary={item.title} />
                     </ListItemButton>
                 </ListItem>

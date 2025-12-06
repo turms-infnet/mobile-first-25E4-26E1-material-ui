@@ -15,9 +15,11 @@ export { default as FormGroup } from './default/FormGroup/FormGroup';
 export { default as FormLabel } from './default/FormLabel/FormLabel';
 export { default as Grid } from './default/Grid/Grid';
 export { default as InputLabel } from './default/InputLabel/InputLabel';
+export { default as MenuItem } from './default/MenuItem/MenuItem';
 export { default as Radio } from './default/Radio/Radio';
 export { default as RadioGroup } from './default/RadioGroup/RadioGroup';
 export { default as Select } from './default/Select/Select';
+export { default as Paper } from './default/Paper/Paper';
 export { default as Skeleton } from './default/Skeleton/Skeleton';
 export { default as Snackbar } from './default/Snackbar/Snackbar';
 export { default as Stack } from './default/Stack/Stack';
@@ -27,5 +29,6 @@ export { default as Typography } from './default/Typography/Typography';
 // Customs
 export { default as AppBar } from './custom/AppBar/AppBar';
 export { default as Button } from './custom/Button/Button';
+export { default as CardElement } from './custom/CardElement/CardElement';
 export { default as Icon } from './custom/Icon/Icon';
 export { default as SideMenu } from './custom/SideMenu/SideMenu';
