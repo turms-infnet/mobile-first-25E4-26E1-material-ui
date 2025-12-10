@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Card, CardElement, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Select, SideMenu, Stack, Typography } from './components';
+import { BarReport, Box, Button, Card, CardElement, Container, FormControl, Grid, Icon, InputLabel, MenuItem, Paper, Select, SideMenu, Stack, Typography } from './components';
 import Appbar from './components/custom/AppBar/AppBar';
 import logo from './assets/image/logo.webp';
 
@@ -51,7 +51,7 @@ const App = () => {
                 }
             </Grid>
             <Grid container spacing={2} sx={{ marginTop: 4, alignItems: 'center' }}>
-                <Grid item size={{ xs: 12, sm: 8 }}>
+                <Grid item size={{ xs: 12, md: 8 }}>
                     <Paper elevation={1} sx={{ padding: 2 }}>
                         <Stack justifyContent="space-between" direction="row" spacing={2}>
                             <Paper elevation={0}>
@@ -82,9 +82,103 @@ const App = () => {
                                 </FormControl>
                             </Paper>
                         </Stack>
+                        <Grid container spacing={2}>
+                            <Grid item size={{ xs: 12, md: 7, lg: 8.5 }}>
+                                <BarReport
+                                    borderRadius={20}
+                                    series={[
+                                        { data: [2400, 1398, 9800, 3908, -4800, 3800, 4300, -1240, 2004], label: 'pv', minBarSize: 5, color: '#7599ff' },
+                                        { data: [4000, 3000, -2000, -2780, 1890, -2390, 3490, 1500, 2403], label: 'uv', minBarSize: 5, color: '#64c8ff' },
+                                    ]}
+                                    xAxis={[{
+                                        data: [
+                                            '01/12/25',
+                                            '02/12/25',
+                                            '03/12/25',
+                                            '04/12/25',
+                                            '05/12/25',
+                                            '06/12/25',
+                                            '07/12/25',
+                                            '08/12/25',
+                                            '09/12/25'
+                                        ]
+                                    }]}
+                                    yAxis={[{ width: 60, max: 10000 }]}
+
+                                    grid={{
+                                        horizontal: true,
+                                        vertical: false
+                                    }}
+                                    sx={{
+                                        "& .MuiChartsGrid-root line": {
+                                            strokeDasharray: "3 3",
+                                            stroke: "#747474ff",
+                                            opacity: 0.4,
+                                        },
+                                        "& .MuiChartsAxis-line": {
+                                            display: "none",
+                                        },
+                                        "& .MuiChartsAxis-tick": {
+                                            display: "none",
+                                        },
+                                    }}
+                                />
+                            </Grid>
+                            <Grid item size={{ xs: 12, md: 5, lg: 3.5 }}>
+                                <Stack direction="column" justifyContent="space-between" direction="column" sx={{
+                                    height: "100%",
+                                }}>
+                                    <Box>
+                                        <Stack spacing={2} justifyContent="flex-start" direction="row" sx={{ marginTop: 2 }}>
+                                            <Icon name="appsIcon" color="#5D87FF" sx={{ marginTop: '4px !important' }} />
+                                            <Box>
+                                                <Typography variant="h3" sx={{
+                                                    fontSize: "1.2rem",
+                                                    fontWeight: 600
+                                                }}>R$ 54.000,00</Typography>
+                                                <Typography variant="h6" sx={{
+                                                    fontSize: "0.775rem",
+                                                    fontWeight: 400,
+                                                    color: '#2A3547'
+                                                }}>Receita total</Typography>
+                                            </Box>
+                                        </Stack>
+                                        <Stack spacing={2} justifyContent="flex-start" direction="row" sx={{ marginTop: 4 }}>
+                                            <Icon name="paid" color="#5D87FF" sx={{ marginTop: 1.5 }} />
+                                            <Box>
+                                                <Typography variant="h6" sx={{
+                                                    fontSize: "0.775rem",
+                                                    fontWeight: 400,
+                                                    color: '#2A3547'
+                                                }}>Entrada</Typography>
+                                                <Typography variant="h3" sx={{
+                                                    fontSize: "1.2rem",
+                                                    fontWeight: 600
+                                                }}>R$ 44.000,00</Typography>
+                                            </Box>
+                                        </Stack>
+                                        <Stack spacing={2} justifyContent="flex-start" direction="row" sx={{ marginTop: 2 }}>
+                                            <Icon name="paid" color="#64c8ff" sx={{ marginTop: '4px !important' }} />
+                                            <Box>
+                                                <Typography variant="h6" sx={{
+                                                    fontSize: "0.775rem",
+                                                    fontWeight: 400,
+                                                    color: '#2A3547'
+                                                }}>Saída</Typography>
+                                                <Typography variant="h3" sx={{
+                                                    fontSize: "1.2rem",
+                                                    fontWeight: 600
+                                                }}>R$ 10.000,00</Typography>
+                                            </Box>
+                                        </Stack>
+                                    </Box>
+                                    <Button variant="contained" sx={{ marginTop: 4 }} >Ver relatório completo</Button>
+                                </Stack>
+                            </Grid>
+                        </Grid>
                     </Paper>
                 </Grid>
-                <Grid item size={{ xs: 12, sm: 4 }}>
+                <Grid item size={{ xs: 12, md: 4 }}>
                     <Grid container spacing={2}>
                         <Grid item size={{ xs: 12 }}>
                             <Paper elevation={1} sx={{ padding: 2 }}></Paper>

@@ -1,7 +1,7 @@
 import getIcon from './icon_util';
 
 const Icons = (props) => {
-    return getIcon(props.name, props.color);
+    return getIcon(props);
 }
 
 export default Icons;

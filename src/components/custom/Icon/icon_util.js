@@ -16,6 +16,8 @@ import projects_icon from '../../../assets/image/icons/projects.svg';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import HomeIcon from '@mui/icons-material/Home';
+import AppsIcon from '@mui/icons-material/Apps';
+import PaidIcon from '@mui/icons-material/Paid';
 
 const getUrlIcon = (name) => {
     switch (name) {
@@ -52,27 +54,40 @@ const getUrlIcon = (name) => {
     }
 }
 
-const getMuiIcon = (name, color) => {
+const getMuiIcon = (name, color, sx) => {
     switch (name) {
         case 'settings':
             return <SettingsIcon sx={{
-                color: color || 'black'
+                color: color || 'black',
+                ...sx
             }} />;
         case 'logout':
             return <LogoutIcon sx={{
-                color: color || 'black'
+                color: color || 'black',
+                ...sx
             }} />;
         case 'home':
             return <HomeIcon sx={{
-                color: color || 'black'
+                color: color || 'black',
+                ...sx
+            }} />;
+        case 'appsIcon':
+            return <AppsIcon sx={{
+                color: color || 'black',
+                ...sx
+            }} />;
+        case 'paid':
+            return <PaidIcon sx={{
+                color: color || 'black',
+                ...sx
             }} />;
     }
 }
 
-const getIcon = (name, color) => {
+const getIcon = ({ name, color, sx }) => {
     const url = getUrlIcon(name);
 
-    return url ? <img src={url} alt={name} /> : getMuiIcon(name, color);
+    return url ? <img src={url} alt={name} /> : getMuiIcon(name, color, sx);
 };
 
 export default getIcon;

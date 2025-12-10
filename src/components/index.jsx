@@ -28,6 +28,7 @@ export { default as TextField } from './default/TextField/TextField';
 export { default as Typography } from './default/Typography/Typography';
 // Customs
 export { default as AppBar } from './custom/AppBar/AppBar';
+export { default as BarReport } from './custom/Reports/BarReport';
 export { default as Button } from './custom/Button/Button';
 export { default as CardElement } from './custom/CardElement/CardElement';
 export { default as Icon } from './custom/Icon/Icon';
