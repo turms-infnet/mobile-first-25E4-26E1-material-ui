@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import { BarReport, Box, Button, Card, CardElement, Container, FormControl, Grid, Icon, InputLabel, MenuItem, Paper, Select, SideMenu, Stack, Typography } from './components';
+import { BarReport, Box, Button, Card, CardElement, Container, FormControl, Grid, Icon, InputLabel, MenuItem, Paper, PieReport, Select, SideMenu, Stack, Typography } from './components';
 import Appbar from './components/custom/AppBar/AppBar';
 import logo from './assets/image/logo.webp';
+import Icons from './components/custom/Icon/Icon';
 
 const App = () => {
     const [cardElements, setCardElements] = React.useState([
@@ -181,10 +182,47 @@ const App = () => {
                 <Grid item size={{ xs: 12, md: 4 }}>
                     <Grid container spacing={2}>
                         <Grid item size={{ xs: 12 }}>
-                            <Paper elevation={1} sx={{ padding: 2 }}></Paper>
+                            <Paper elevation={1} sx={{ padding: 2 }}>
+                                <Stack direction="row" justifyContent="space-between">
+                                    <Stack direction="column">
+                                        <Typography variant="h5" sx={{
+                                            fontSize: "1.125rem",
+                                            fontWeight: 600
+                                        }}>Anual</Typography>
+                                        <Stack direction="column" spacing={1} sx={{ marginTop: 2 }}>
+                                            <Typography variant="h6" sx={{
+                                                fontSize: "1.5rem",
+                                                fontWeight: 600
+                                            }}>R$ 145.000,00</Typography>
+                                            <Stack direction="row" sx={{ marginTop: 2 }}>
+                                                <Icons name="outboundIcon" color="#e6fffa" sx={{
+                                                    backgroundColor: "#39b69a",
+                                                    borderRadius: "100%",
+                                                    border: "none"
+                                                }} />
+                                                <Stack direction="row" sx={{ marginLeft: 1 }}>
+                                                    <Typography variant="body2" sx={{ fontWeight: 400 }}>+9%</Typography>
+                                                    <Typography variant="body2" sx={{ fontWeight: 400, marginLeft: 2 }}>2024</Typography>
+                                                </Stack>
+                                            </Stack>
+                                        </Stack>
+                                    </Stack>
+                                    <PieReport />
+                                </Stack>
+                                <Stack direction="row" spacing={1} sx={{ marginTop: 2 }}>
+                                    <Stack direction="row">
+                                        <Icon name="paid" color="#5D87FF" />
+                                        <Typography variant="body2" sx={{ fontWeight: 400 }}>2025</Typography>
+                                    </Stack>
+                                    <Stack direction="row" sx={{ marginLeft: '24px !important' }}>
+                                        <Icon name="paid" color="#64c8ff" />
+                                        <Typography variant="body2" sx={{ fontWeight: 400 }}>2025</Typography>
+                                    </Stack>
+                                </Stack>
+                            </Paper>
                         </Grid>
                         <Grid item size={{ xs: 12 }}>
-                            <Paper elevation={1} sx={{ padding: 2 }}></Paper>
+                            <Paper elevation={1} sx={{ padding: 2 }}>A</Paper>
                         </Grid>
                     </Grid>
                 </Grid>

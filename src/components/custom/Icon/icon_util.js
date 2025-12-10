@@ -18,6 +18,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import HomeIcon from '@mui/icons-material/Home';
 import AppsIcon from '@mui/icons-material/Apps';
 import PaidIcon from '@mui/icons-material/Paid';
+import OutboundIcon from '@mui/icons-material/Outbound';
 
 const getUrlIcon = (name) => {
     switch (name) {
@@ -78,6 +79,11 @@ const getMuiIcon = (name, color, sx) => {
             }} />;
         case 'paid':
             return <PaidIcon sx={{
+                color: color || 'black',
+                ...sx
+            }} />;
+        case 'outboundIcon':
+            return <OutboundIcon sx={{
                 color: color || 'black',
                 ...sx
             }} />;
