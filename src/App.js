@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
-import { BarReport, Box, Button, Card, CardElement, Container, FormControl, Grid, Icon, InputLabel, MenuItem, Paper, PieReport, Select, SideMenu, Stack, Typography } from './components';
+import { BarReport, Box, Button, CardElement, Container, Fab, FormControl, Grid, Icon, InputLabel, LineReport, MenuItem, Paper, PieReport, Select, SideMenu, Stack, Typography } from './components';
 import Appbar from './components/custom/AppBar/AppBar';
 import logo from './assets/image/logo.webp';
 import Icons from './components/custom/Icon/Icon';
+import { lineElementClasses } from '@mui/x-charts';
 
 const App = () => {
     const [cardElements, setCardElements] = React.useState([
@@ -51,7 +52,7 @@ const App = () => {
                     })
                 }
             </Grid>
-            <Grid container spacing={2} sx={{ marginTop: 4, alignItems: 'center' }}>
+            <Grid container spacing={2} sx={{ marginTop: 4, alignItems: 'flex-start' }}>
                 <Grid item size={{ xs: 12, md: 8 }}>
                     <Paper elevation={1} sx={{ padding: 2 }}>
                         <Stack justifyContent="space-between" direction="row" spacing={2}>
@@ -86,6 +87,9 @@ const App = () => {
                         <Grid container spacing={2}>
                             <Grid item size={{ xs: 12, md: 7, lg: 8.5 }}>
                                 <BarReport
+                                    sxBox={{
+                                        height: 327,
+                                    }}
                                     borderRadius={20}
                                     series={[
                                         { data: [2400, 1398, 9800, 3908, -4800, 3800, 4300, -1240, 2004], label: 'pv', minBarSize: 5, color: '#7599ff' },
@@ -102,10 +106,9 @@ const App = () => {
                                             '07/12/25',
                                             '08/12/25',
                                             '09/12/25'
-                                        ]
+                                        ],
                                     }]}
                                     yAxis={[{ width: 60, max: 10000 }]}
-
                                     grid={{
                                         horizontal: true,
                                         vertical: false
@@ -207,7 +210,21 @@ const App = () => {
                                             </Stack>
                                         </Stack>
                                     </Stack>
-                                    <PieReport />
+                                    <PieReport
+                                        series={[{
+                                            innerRadius: 30, outerRadius: 40, data: [
+                                                { value: 400, color: '#5D87FF' },
+                                                { value: 300, color: '#64c8ff' },
+                                            ]
+                                        }]}
+                                        settings={{
+                                            margin: { right: 5 },
+                                            width: 200,
+                                            height: 200,
+                                            hideLegend: true,
+                                            hideTooltip: true,
+                                        }}
+                                    />
                                 </Stack>
                                 <Stack direction="row" spacing={1} sx={{ marginTop: 2 }}>
                                     <Stack direction="row">
@@ -222,7 +239,68 @@ const App = () => {
                             </Paper>
                         </Grid>
                         <Grid item size={{ xs: 12 }}>
-                            <Paper elevation={1} sx={{ padding: 2 }}>A</Paper>
+                            <Paper elevation={1} sx={{ padding: 2, overflow: 'hidden', position: 'relative', height: 200 }}>
+                                <Stack direction="row" justifyContent="space-between">
+                                    <Stack direction="column">
+                                        <Typography variant="h5" sx={{
+                                            fontSize: "1.125rem",
+                                            fontWeight: 600
+                                        }}>Mês a mês</Typography>
+                                        <Stack direction="column" spacing={1} sx={{ marginTop: 2 }}>
+                                            <Typography variant="h6" sx={{
+                                                fontSize: "1.5rem",
+                                                fontWeight: 600
+                                            }}>R$ 25.000,00</Typography>
+                                            <Stack direction="row" sx={{ marginTop: 2 }}>
+                                                <Icons name="outboundIcon" color="#fdede8" sx={{
+                                                    backgroundColor: "#fa896b",
+                                                    borderRadius: "100%",
+                                                    border: "none",
+                                                    transform: 'rotate(180deg) scaleX(-1)',
+                                                }} />
+                                                <Stack direction="row" sx={{ marginLeft: 1 }}>
+                                                    <Typography variant="body2" sx={{ fontWeight: 400 }}>+9%</Typography>
+                                                </Stack>
+                                            </Stack>
+                                        </Stack>
+                                    </Stack>
+                                    <Fab sx={{
+                                        backgroundColor: '#49beff',
+                                        boxShadow: 'none',
+                                        '&:hover': {
+                                            backgroundColor: '#33aaff',
+                                        }
+                                    }}
+                                        size="small">
+                                        <Icon name="attachMoneyIcon" color="#ffffff" />
+                                    </Fab>
+                                </Stack>
+                                <LineReport
+                                    sxBox={{
+                                        position: 'absolute',
+                                        bottom: '-45px',
+                                        left: '-65px',
+                                        width: 'calc(100% + 89px)',
+                                    }}
+                                    height={120}
+                                    series={[{ data: [4000, 3000, 2000, 2780, 1890, 2390, 3490], type: 'line', label: 'uv', area: true, stack: 'total', showMark: false, color: '#7599ff' }]}
+                                    xAxis={[{
+                                        scaleType: 'point', data: [
+                                            'Page A',
+                                            'Page B',
+                                            'Page C',
+                                            'Page D',
+                                            'Page E',
+                                            'Page F',
+                                            'Page G',
+                                        ]
+                                    }]}
+                                    margin={{ right: 24 }}
+                                    sx={{
+                                        display: 'none',
+                                    }}
+                                />
+                            </Paper>
                         </Grid>
                     </Grid>
                 </Grid>

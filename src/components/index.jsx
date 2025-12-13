@@ -29,6 +29,7 @@ export { default as Typography } from './default/Typography/Typography';
 // Customs
 export { default as AppBar } from './custom/AppBar/AppBar';
 export { default as BarReport } from './custom/Reports/BarReport';
+export { default as LineReport } from './custom/Reports/LineReport';
 export { default as PieReport } from './custom/Reports/PieReport';
 export { default as Button } from './custom/Button/Button';
 export { default as CardElement } from './custom/CardElement/CardElement';
