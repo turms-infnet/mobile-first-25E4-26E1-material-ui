@@ -34,4 +34,5 @@ export { default as PieReport } from './custom/Reports/PieReport';
 export { default as Button } from './custom/Button/Button';
 export { default as CardElement } from './custom/CardElement/CardElement';
 export { default as Icon } from './custom/Icon/Icon';
+export { default as ItemAvatar } from './custom/ItemAvatar/ItemAvatar';
 export { default as SideMenu } from './custom/SideMenu/SideMenu';

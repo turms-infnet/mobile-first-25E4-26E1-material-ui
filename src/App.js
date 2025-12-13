@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import { BarReport, Box, Button, CardElement, Container, Fab, FormControl, Grid, Icon, InputLabel, LineReport, MenuItem, Paper, PieReport, Select, SideMenu, Stack, Typography } from './components';
+import { BarReport, Box, Button, CardElement, Chip, Container, Fab, FormControl, Grid, Icon, InputLabel, ItemAvatar, LineReport, MenuItem, Paper, PieReport, Select, SideMenu, Stack, Typography } from './components';
 import Appbar from './components/custom/AppBar/AppBar';
 import logo from './assets/image/logo.webp';
 import Icons from './components/custom/Icon/Icon';
 import { lineElementClasses } from '@mui/x-charts';
+import Datagrid from './components/custom/Datagrid/Datagrid';
 
 const App = () => {
     const [cardElements, setCardElements] = React.useState([
@@ -303,6 +304,58 @@ const App = () => {
                             </Paper>
                         </Grid>
                     </Grid>
+                </Grid>
+            </Grid>
+            <Grid container spacing={2} sx={{ marginTop: 4, marginBottom: 4 }}>
+                <Grid item size={{ xs: 12 }}>
+                    <Paper elevation={1} sx={{ padding: 2 }}>
+                        <Datagrid
+                            rowHeight={64}
+                            rows={[
+                                { funcionario: { title: 'Tiago', subtitle: 'Developer', image: "https://modernize-nextjs.adminmart.com/images/profile/user-1.jpg" }, project: "Projeto 1", id: 1, status: { label: "Trabalhando", color: "info" }, budget: "R$ 1000,00" },
+                                { funcionario: { title: 'Mário', subtitle: 'Developer', image: "https://modernize-nextjs.adminmart.com/images/profile/user-3.jpg" }, project: "Projeto 1", id: 2, status: { label: "Trabalhando", color: "info" }, budget: "R$ 1000,00" },
+                                { funcionario: { title: 'Júlio', subtitle: 'Developer', image: "https://modernize-nextjs.adminmart.com/images/profile/user-2.jpg" }, project: "Projeto 3", id: 3, status: { label: "Trabalhando", color: "info" }, budget: "R$ 1000,00" },
+                                { funcionario: { title: 'Felipe', subtitle: 'Developer', image: "https://modernize-nextjs.adminmart.com/images/profile/user-1.jpg" }, project: "Projeto 4", id: 4, status: { label: "Férias", color: "success" }, budget: "R$ 1000,00" },
+                                { funcionario: { title: 'João', subtitle: 'Developer', image: "https://modernize-nextjs.adminmart.com/images/profile/user-2.jpg" }, project: "Projeto 1", id: 5, status: { label: "Aviso", color: "error" }, budget: "R$ 1000,00" },
+                                { funcionario: { title: 'Teófilo', subtitle: 'Developer', image: "https://modernize-nextjs.adminmart.com/images/profile/user-4.jpg" }, project: "Projeto 2", id: 6, status: { label: "Férias", color: "success" }, budget: "R$ 1000,00" },
+                                { funcionario: { title: 'Jairo', subtitle: 'Developer', image: "https://modernize-nextjs.adminmart.com/images/profile/user-2.jpg" }, project: "Projeto 2", id: 7, status: { label: "Trabalhando", color: "info" }, budget: "R$ 1000,00" },
+                                { funcionario: { title: 'Gabriel', subtitle: 'Developer', image: "https://modernize-nextjs.adminmart.com/images/profile/user-1.jpg" }, project: "Projeto 5", id: 8, status: { label: "Trabalhando", color: "info" }, budget: "R$ 1000,00" },
+                                { funcionario: { title: 'Benício', subtitle: 'Developer', image: "https://modernize-nextjs.adminmart.com/images/profile/user-3.jpg" }, project: "Projeto 5", id: 9, status: { label: "Trabalhando", color: "info" }, budget: "R$ 1000,00" }
+                            ]}
+                            columns={[
+                                {
+                                    field: 'funcionario', headerName: 'Funcionário', width: 200, renderCell: (params) => (
+                                        <ItemAvatar
+                                            title={params.row.funcionario.title}
+                                            subtitle={params.row.funcionario.subtitle}
+                                            image={params.row.funcionario.image}
+                                        />
+                                    )
+                                },
+                                {
+                                    field: 'project', headerName: 'Projeto', width: 200
+                                },
+                                {
+                                    field: 'status', headerName: 'Status', width: 300, renderCell: (params) => (
+                                        <Chip label={params.row.status.label} color={params.row.status.color} />
+                                    )
+                                },
+                                {
+                                    field: 'budget', headerName: 'Budget', width: 300
+                                }
+                            ]}
+                            initialState={{
+                                pagination: {
+                                    paginationModel: {
+                                        pageSize: 5,
+                                    },
+                                },
+                            }}
+                            pageSizeOptions={[5]}
+                            checkboxSelection
+                            disableRowSelectionOnClick
+                        />
+                    </Paper>
                 </Grid>
             </Grid>
         </Container>
